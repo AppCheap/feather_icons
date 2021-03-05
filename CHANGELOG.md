@@ -1,3 +1,5 @@
-## [0.0.1] - TODO: Add release date.
+## [1.0.0] - Init Release.
 
-* TODO: Describe initial release.
+* Get font Map `FeatherIconsMap['activity']`
+* Get font Camel Case `FeatherIcons.alertCircle`
+* Get font Snake Case `FeatherIconsSnakeCase.alert_circle`
