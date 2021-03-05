@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  recase:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
