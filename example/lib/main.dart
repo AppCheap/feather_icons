@@ -55,15 +55,51 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+
+    List<String> keys = FeatherIconsMap.keys.toList();
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Container(
-        child: Icon(FeatherIcon.layout),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 8.0,
+        ),
+        itemBuilder: (BuildContext context, int index) {
+          return IconCard(
+            icon: keys[index],
+          );
+        },
+        itemCount: keys.length,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class IconCard extends StatelessWidget {
+  final String icon;
+
+  const IconCard({Key key, this.icon}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(
+            FeatherIconsMap[icon],
+            size: 50.0,
+          ),
+          SizedBox(height: 30.0),
+          Text(icon)
+        ],
+      ),
+    );
+    ;
   }
 }

@@ -32,8 +32,8 @@ void main(List<String> args) {
   generatedOutput.add("class FeatherIcons {\n");
 
   for (Map<String, dynamic> icon in icons) {
-    icon.forEach((String iconName, dynamic iconUnicode) => generatedOutput
-        .add("static const IconData ${ReCase(iconName).camelCase} = const FeatherIconData(0x$iconUnicode);\n"));
+    icon.forEach((String iconName, dynamic iconUnicode) =>
+        generatedOutput.add("static const IconData ${iconName.camelCase} = const FeatherIconData(0x$iconUnicode);\n"));
   }
 
   generatedOutput.add("}\n");
@@ -41,8 +41,8 @@ void main(List<String> args) {
   generatedOutput.add("class FeatherIconsSnakeCase {\n");
 
   for (Map<String, dynamic> icon in icons) {
-    icon.forEach((String iconName, dynamic iconUnicode) => generatedOutput
-        .add("static const IconData ${ReCase(iconName).snakeCase} = const FeatherIconData(0x$iconUnicode);\n"));
+    icon.forEach((String iconName, dynamic iconUnicode) =>
+        generatedOutput.add("static const IconData ${iconName.snakeCase} = const FeatherIconData(0x$iconUnicode);\n"));
   }
 
   generatedOutput.add("}\n");
