@@ -2,10 +2,12 @@ import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Feather Icon Example'),
+      home: const MyHomePage(title: 'Feather Icon Example'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -70,9 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisSpacing: 8.0,
         ),
         itemBuilder: (BuildContext context, int index) {
-          return IconCard(
-            icon: keys[index],
-          );
+          return IconCard(icon: keys[index]);
         },
         itemCount: keys.length,
       ), // This trailing comma makes auto-formatting nicer for build methods.
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
 class IconCard extends StatelessWidget {
   final String icon;
 
-  const IconCard({Key key, this.icon}) : super(key: key);
+  const IconCard({super.key, required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -91,15 +91,11 @@ class IconCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(
-            FeatherIconsMap[icon],
-            size: 50.0,
-          ),
+          Icon(FeatherIconsMap[icon], size: 50.0),
           SizedBox(height: 30.0),
-          Text(icon)
+          Text(icon),
         ],
       ),
     );
-    ;
   }
 }
